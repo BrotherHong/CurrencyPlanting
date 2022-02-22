@@ -1,0 +1,46 @@
+name: CurrencyPlanting
+version: '${project.version}'
+main: me.brotherhong.currencyplanting.CurrencyPlanting
+api-version: 1.17
+authors: [ BrotherHong ]
+
+commands:
+  currencyplanting:
+    aliases: [cp]
+
+permissions:
+  currencyplanting.*:
+    description: Allow all permissions of this plugin.
+    default: op
+    children:
+      currencyplanting.reload: true
+      currencyplanting.set: true
+      currencyplanting.help: true
+      currencyplanting.break: true
+
+  currencyplanting.reload:
+    description: Allow one to reload this plugin.
+    default: op
+
+  currencyplanting.set:
+    description: Allow one to set the currency.
+    default: op
+
+  currencyplanting.help:
+    description: Allow one to use /cp help command.
+    default: op
+
+  currencyplanting.break:
+    description: Allow one to break amethyst.
+    default: true
+    children:
+      currencyplanting.break.cluster: true
+      currencyplanting.break.budding: true
+
+  currencyplanting.break.cluster:
+    description: Allow one to break amethyst cluster.
+    default: true
+
+  currencyplanting.break.budding:
+    description: Allow one to break budding amethyst.
+    default: true
