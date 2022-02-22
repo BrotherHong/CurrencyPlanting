@@ -51,6 +51,7 @@ public class ConfigManager {
 
         try {
             this.getConfig().save(this.configFile);
+            this.reloadConfig();
         } catch (IOException e) {
             plugin.getLogger().log(Level.SEVERE, "Could not save config to " + this.configFile, e);
         }

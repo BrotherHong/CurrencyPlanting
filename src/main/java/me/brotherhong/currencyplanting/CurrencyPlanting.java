@@ -1,8 +1,8 @@
 package me.brotherhong.currencyplanting;
 
 import me.brotherhong.currencyplanting.commands.CommandManager;
-import me.brotherhong.currencyplanting.commands.listener.AmethystBreakListener;
-import me.brotherhong.currencyplanting.commands.listener.AmethystGrowListener;
+import me.brotherhong.currencyplanting.listener.AmethystBreakListener;
+import me.brotherhong.currencyplanting.listener.AmethystGrowListener;
 import me.brotherhong.currencyplanting.config.Config;
 import org.bukkit.plugin.java.JavaPlugin;
 

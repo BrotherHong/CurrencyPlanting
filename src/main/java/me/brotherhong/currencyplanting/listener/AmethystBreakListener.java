@@ -1,4 +1,4 @@
-package me.brotherhong.currencyplanting.commands.listener;
+package me.brotherhong.currencyplanting.listener;
 
 import me.brotherhong.currencyplanting.CurrencyPlanting;
 import me.brotherhong.currencyplanting.Permissions;
