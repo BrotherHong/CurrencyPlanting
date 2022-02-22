@@ -30,6 +30,10 @@ permissions:
     description: Allow one to use /cp help command.
     default: op
 
+  currencyplanting.set-currency:
+    description: Allow one to set the currency.
+    default: op
+
   currencyplanting.break:
     description: Allow one to break amethyst.
     default: true
