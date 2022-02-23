@@ -3,6 +3,7 @@ package me.brotherhong.currencyplanting.listener;
 import me.brotherhong.currencyplanting.CurrencyPlanting;
 import me.brotherhong.currencyplanting.Permissions;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -59,7 +60,8 @@ public class AmethystBreakListener extends MyListener {
             messages.sendNeedSilkTouch(player);
             return;
         }
-        event.setDropItems(true);
+        Block block = event.getBlock();
+        block.getWorld().dropItem(block.getLocation(), block.getDrops().stream().findFirst().get());
     }
 
     private boolean isAmethyst(Material type) {
