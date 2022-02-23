@@ -40,6 +40,12 @@ public class Config extends ConfigManager {
         load();
     }
 
+    @Override
+    public void reloadConfig() {
+        super.reloadConfig();
+        load();
+    }
+
     public List<String> getDisabledWorld() {
         if (disabledWorld == null) {
             disabledWorld = new ArrayList<>();
