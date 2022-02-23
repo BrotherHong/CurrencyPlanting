@@ -12,7 +12,7 @@ budding:
   # Whether budding amethyst drops after breaking it.
   drop: true
   # The chance(%) represents whether the amethyst will grow when natural growth
-  # only available for integer in range 1 ~ 100
+  # only available for integer in range 0 ~ 100
   chance: 80
 
 # The item that will drop after breaking amethyst cluster

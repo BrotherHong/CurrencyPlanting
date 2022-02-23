@@ -24,7 +24,8 @@ public class Config extends ConfigManager {
         load();
     }
 
-    private void load() {
+    @Override
+    protected void load() {
         prefix = config.getString("prefix");
         disabledWorld = config.getStringList("disabled-world");
         silkTouch = config.getBoolean("budding.silk-touch");
@@ -62,7 +63,7 @@ public class Config extends ConfigManager {
     }
 
     public int getChance() {
-        if (chance <= 0 || 100 < chance) {
+        if (chance < 0 || 100 < chance) {
             chance = 100;
         }
         return chance;

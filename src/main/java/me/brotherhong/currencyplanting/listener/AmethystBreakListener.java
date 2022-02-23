@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class AmethystBreakListener extends MyListener {
 
@@ -20,6 +21,7 @@ public class AmethystBreakListener extends MyListener {
     public void onAmethystBreak(BlockBreakEvent event) {
         if (!isAmethyst(event.getBlock().getType()))
             return;
+        // amethyst break
         if (config.getDisabledWorld().contains(event.getBlock().getWorld().getName()))
             return;
         Player player = event.getPlayer();
@@ -35,13 +37,14 @@ public class AmethystBreakListener extends MyListener {
         }
         ItemStack currency = config.getCurrency();
         event.setDropItems(false);
-        player.getWorld().dropItem(event.getBlock().getLocation(), currency);
+        player.getWorld().dropItemNaturally(event.getBlock().getLocation(), currency);
     }
 
     @EventHandler
     public void onBuddingBreak(BlockBreakEvent event) {
-        if (event.getBlock().getType() != Material.BUDDING_AMETHYST)
+        if (!(event.getBlock().getType() == Material.BUDDING_AMETHYST))
             return;
+        // budding break
         if (config.getDisabledWorld().contains(event.getBlock().getWorld().getName()))
             return;
         Player player = event.getPlayer();
@@ -53,15 +56,16 @@ public class AmethystBreakListener extends MyListener {
         if (!config.canDrop()) {
             return;
         }
+        ItemMeta enchant = player.getInventory().getItemInMainHand().getItemMeta();
         if (config.needSilkTouch() &&
-                !player.getInventory().getItemInMainHand().getItemMeta()
-                        .hasEnchant(Enchantment.SILK_TOUCH)) {
+                (!enchant.hasEnchants() ||
+                        !enchant.hasEnchant(Enchantment.SILK_TOUCH))) {
             event.setCancelled(true);
             messages.sendNeedSilkTouch(player);
             return;
         }
         Block block = event.getBlock();
-        block.getWorld().dropItem(block.getLocation(), block.getDrops().stream().findFirst().get());
+        block.getWorld().dropItemNaturally(block.getLocation(), new ItemStack(Material.BUDDING_AMETHYST, 1));
     }
 
     private boolean isAmethyst(Material type) {

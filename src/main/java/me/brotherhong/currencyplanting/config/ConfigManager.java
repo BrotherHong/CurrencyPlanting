@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 
-public class ConfigManager {
+public abstract class ConfigManager {
 
     private CurrencyPlanting plugin;
 
@@ -37,6 +37,7 @@ public class ConfigManager {
             YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defaultStream));
             this.dataConfig.setDefaults(defaultConfig);
         }
+        load();
     }
 
     public FileConfiguration getConfig() {
@@ -65,4 +66,6 @@ public class ConfigManager {
             this.plugin.saveResource(fileName, false);
         }
     }
+
+    protected abstract void load();
 }
