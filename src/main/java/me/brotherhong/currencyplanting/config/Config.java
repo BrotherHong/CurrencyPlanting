@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Config extends ConfigManager {
 
-    private FileConfiguration config = super.getConfig();
+    private FileConfiguration config;
 
     private String prefix;
     private List<String> disabledWorld;
@@ -21,6 +21,7 @@ public class Config extends ConfigManager {
 
     public Config(CurrencyPlanting plugin) {
         super(plugin, "config.yml");
+        this.config = super.getConfig();
         load();
     }
 
