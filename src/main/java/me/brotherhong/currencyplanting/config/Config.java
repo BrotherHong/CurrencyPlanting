@@ -5,11 +5,15 @@ import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Config extends ConfigManager {
 
     private FileConfiguration config = super.getConfig();
 
     private String prefix;
+    private List<String> disabledWorld;
     private boolean silkTouch;
     private boolean drop;
     private int chance;
@@ -22,6 +26,7 @@ public class Config extends ConfigManager {
 
     private void load() {
         prefix = config.getString("prefix");
+        disabledWorld = config.getStringList("disabled-world");
         silkTouch = config.getBoolean("budding.silk-touch");
         drop = config.getBoolean("budding.drop");
         chance = config.getInt("budding.chance");
@@ -32,6 +37,13 @@ public class Config extends ConfigManager {
     public void saveConfig() {
         super.saveConfig();
         load();
+    }
+
+    public List<String> getDisabledWorld() {
+        if (disabledWorld == null) {
+            disabledWorld = new ArrayList<>();
+        }
+        return disabledWorld;
     }
 
     public ItemStack getCurrency() {

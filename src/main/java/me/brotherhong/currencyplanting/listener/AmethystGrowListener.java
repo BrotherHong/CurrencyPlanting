@@ -18,11 +18,13 @@ public class AmethystGrowListener extends MyListener {
     public void onAmethystGrow(BlockGrowEvent event) {
         if (event.getBlock().getType() != Material.BUDDING_AMETHYST)
             return;
-        plugin.getServer().getLogger().log(Level.INFO, "BUDDING_AMETHYST_GROWTH");
+        if (config.getDisabledWorld().contains(event.getBlock().getWorld().getName()))
+            return;
+        // plugin.getServer().getLogger().log(Level.INFO, "BUDDING_AMETHYST_GROWTH");
         int chance = config.getChance();
         if (!canGrowth(chance)) {
             event.setCancelled(true);
-            plugin.getServer().getLogger().log(Level.INFO, "CANCEL GROWTH");
+            // plugin.getServer().getLogger().log(Level.INFO, "CANCEL GROWTH");
         }
     }
 

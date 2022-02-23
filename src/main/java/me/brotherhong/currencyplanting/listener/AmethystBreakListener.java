@@ -19,6 +19,8 @@ public class AmethystBreakListener extends MyListener {
     public void onAmethystBreak(BlockBreakEvent event) {
         if (!isAmethyst(event.getBlock().getType()))
             return;
+        if (config.getDisabledWorld().contains(event.getBlock().getWorld().getName()))
+            return;
         Player player = event.getPlayer();
         if (!player.hasPermission(Permissions.BREAK_CLUSTER)) {
             event.setCancelled(true);
@@ -38,6 +40,8 @@ public class AmethystBreakListener extends MyListener {
     @EventHandler
     public void onBuddingBreak(BlockBreakEvent event) {
         if (event.getBlock().getType() != Material.BUDDING_AMETHYST)
+            return;
+        if (config.getDisabledWorld().contains(event.getBlock().getWorld().getName()))
             return;
         Player player = event.getPlayer();
         if (!player.hasPermission(Permissions.BREAK_BUDDING)) {

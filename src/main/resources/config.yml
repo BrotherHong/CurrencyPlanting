@@ -23,7 +23,7 @@ messages:
   reload: "&aReload complete."
   no-item-in-hand: "&cYou do not have any item in your main hand!"
   success-set-currency: "&aSuccessfully set the currency!"
-  not-ready-to-break: "&cThis currency cannot break now!"
+  not-ready-to-break: "&cYou can't break it now!"
   need-silk-touch: "&cYou need to use the pickaxe that has silk-touch enchantment!"
 
 

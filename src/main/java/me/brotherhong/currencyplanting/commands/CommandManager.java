@@ -61,7 +61,7 @@ public class CommandManager implements TabExecutor {
         if (args.length == 1) {
             for (SubCommand subCommand : subCommands) {
                 String commandName = subCommand.getName();
-                if (args[0].startsWith(commandName)) {
+                if (commandName.startsWith(args[0])) {
                     result.add(commandName);
                 }
             }
