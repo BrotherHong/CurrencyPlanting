@@ -42,7 +42,7 @@ public class AmethystBreakListener extends MyListener {
 
     @EventHandler
     public void onBuddingBreak(BlockBreakEvent event) {
-        if (!(event.getBlock().getType() == Material.BUDDING_AMETHYST))
+        if (event.getBlock().getType() != Material.BUDDING_AMETHYST)
             return;
         // budding break
         if (config.getDisabledWorld().contains(event.getBlock().getWorld().getName()))

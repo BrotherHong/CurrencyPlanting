@@ -17,6 +17,9 @@ budding:
 
 # The item that will drop after breaking amethyst cluster
 currency:
+  ==: org.bukkit.inventory.ItemStack
+  v: 2865
+  type: AMETHYST_CLUSTER
 
 messages:
   no-permission: "&cYou do not have permission to do this!"

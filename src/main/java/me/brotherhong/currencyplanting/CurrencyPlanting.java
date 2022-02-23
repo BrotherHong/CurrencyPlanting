@@ -27,7 +27,7 @@ public final class CurrencyPlanting extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        config.saveConfig();
+
     }
 
     public CurrencyPlanting getInstance() {

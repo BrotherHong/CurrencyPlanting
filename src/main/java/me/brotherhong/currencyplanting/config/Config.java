@@ -10,8 +10,6 @@ import java.util.List;
 
 public class Config extends ConfigManager {
 
-    private FileConfiguration config;
-
     private String prefix;
     private List<String> disabledWorld;
     private boolean silkTouch;
@@ -21,30 +19,17 @@ public class Config extends ConfigManager {
 
     public Config(CurrencyPlanting plugin) {
         super(plugin, "config.yml");
-        this.config = super.getConfig();
         load();
     }
 
     @Override
     protected void load() {
-        prefix = config.getString("prefix");
-        disabledWorld = config.getStringList("disabled-world");
-        silkTouch = config.getBoolean("budding.silk-touch");
-        drop = config.getBoolean("budding.drop");
-        chance = config.getInt("budding.chance");
-        currency = config.getItemStack("currency");
-    }
-
-    @Override
-    public void saveConfig() {
-        super.saveConfig();
-        load();
-    }
-
-    @Override
-    public void reloadConfig() {
-        super.reloadConfig();
-        load();
+        prefix = getConfig().getString("prefix");
+        disabledWorld = getConfig().getStringList("disabled-world");
+        silkTouch = getConfig().getBoolean("budding.silk-touch");
+        drop = getConfig().getBoolean("budding.drop");
+        chance = getConfig().getInt("budding.chance");
+        currency = getConfig().getItemStack("currency");
     }
 
     public List<String> getDisabledWorld() {

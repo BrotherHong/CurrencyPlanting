@@ -34,13 +34,13 @@ public class SetCurrencyCommand extends SubCommand {
 
     @Override
     public void execute(Player player, String[] args) {
-        ItemStack item = player.getInventory().getItemInMainHand();
+        ItemStack item = player.getInventory().getItemInMainHand().clone();
         if (item.getType().isAir()) {
             messages.sendNoItemInHand(player);
             return;
         }
         config.getConfig().set("currency", item);
-        config.saveConfig();
+        config.saveAndReload();
         messages.sendSuccessSet(player);
     }
 }
